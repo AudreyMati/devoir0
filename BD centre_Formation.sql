@@ -146,3 +146,19 @@ ALTER TABLE APPARTIENT
   ADD FOREIGN KEY FK_APPARTIENT_SPECIALITÉ (CODESPEC)
       REFERENCES SPECIALITÉ (CODESPEC) ;
 
+
+# -----------------------------------------------------------------------------
+#       ajout des modifications
+# -----------------------------------------------------------------------------
+
+ alter table session
+    add constraint check_date check (datefin > datedebut);
+
+alter table specialite
+    add column active int(1) default 1;
+
+
+alter table est_inscrit
+    modify typecours varchar(128) not null;
+
+
